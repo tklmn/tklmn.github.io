@@ -1,0 +1,57 @@
+title: Tom Kilimann
+tagline: Full-Stack Web Developer
+description: >-
+  Full-stack web developer specializing in modern web technologies.
+  View my projects and read my blog.
+url: "https://tklmn.github.io"
+baseurl: ""
+
+# i18n — translatable strings live in _data/i18n/<code>/ (content, profile,
+# skills, timeline). The language list is auto-discovered from those folders;
+# just add a new folder to add a language. `default_lang` is rendered into the
+# HTML (for SEO / no-JS) and used as the fallback.
+lang: en
+default_lang: en
+
+# GitHub username used to import public repositories as projects
+github_username: tklmn
+
+author:
+  name: Tom Kilimann
+  email: tkilimann@icloud.com
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:title/
+
+# Show this many newest posts on the home page
+home_posts: 3
+
+# Toggle whole sections on/off. Data-driven blocks (journey, stats, skills)
+# also hide automatically when their _data file is empty.
+sections:
+  about: true
+  skills: true
+  projects: true
+  blog: true
+  contact: true
+
+# Exclude repos (forks are filtered in JS); list repo names to hide if needed
+projects:
+  hide:
+    - tklmn.github.io
+  max: 12
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .jekyll-cache
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

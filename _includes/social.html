@@ -1,0 +1,23 @@
+{%- comment -%}
+  Renders all social links for a given profile.
+  Params:
+    profile — the profile data (e.g. site.data.i18n[lang].profile)
+    class   — wrapper CSS class (e.g. "social-row" or "footer-social")
+  Icons/labels come from _data/social_icons.yml; a profile entry may override
+  them inline with its own `icon:` / `label:`. Email is appended automatically
+  when profile.email is set and profile.social_show_email is not false.
+{%- endcomment -%}
+{%- assign p = include.profile -%}
+{%- assign reg = site.data.social_icons -%}
+<span class="{{ include.class }}">
+  {%- for s in p.social -%}
+    {%- assign meta = reg[s.platform] -%}
+    {%- assign icon = s.icon | default: meta.icon | default: "ph:link-bold" -%}
+    {%- assign label = s.label | default: meta.label | default: s.platform -%}
+    <a href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ label }}"><iconify-icon icon="{{ icon }}"></iconify-icon></a>
+  {%- endfor -%}
+  {%- if p.email and p.social_show_email != false -%}
+    {%- assign emeta = reg.email -%}
+    <a href="mailto:{{ p.email }}" aria-label="{{ emeta.label | default: 'Email' }}"><iconify-icon icon="{{ emeta.icon | default: 'ph:envelope-simple-bold' }}"></iconify-icon></a>
+  {%- endif -%}
+</span>

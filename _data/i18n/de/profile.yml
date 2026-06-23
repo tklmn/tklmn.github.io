@@ -1,0 +1,31 @@
+greeting: "Hallo, ich bin"
+name: Tom Kilimann
+role: Full-Stack-Webentwickler
+lede: >-
+  Ich entwickle herausragende digitale Erlebnisse mit modernen Technologien.
+  Mit Leidenschaft für sauberen Code, gutes UI/UX und das Verwirklichen von Ideen.
+
+bio: >-
+  Ich bin ein leidenschaftlicher Full-Stack-Entwickler mit über 15 Jahren
+  Erfahrung im Bau von Webanwendungen. Ich liebe es, elegante Lösungen für
+  komplexe Probleme zu finden und Ideen mit Code zum Leben zu erwecken.
+
+stats:
+  - value: "15+"
+    label: Jahre Erfahrung
+  - value: "100+"
+    label: Abgeschlossene Projekte
+  - value: "200+"
+    label: Zufriedene Kunden
+
+location: München, Deutschland
+
+email: tkilimann@icloud.com
+
+social:
+  - platform: github
+    url: https://github.com/tklmn
+  - platform: linkedin
+    url: https://www.linkedin.com/in/tklmn
+
+social_show_email: true

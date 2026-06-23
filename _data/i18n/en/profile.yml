@@ -1,0 +1,33 @@
+greeting: "Hello, I'm"
+name: Tom Kilimann
+role: Full-Stack Web Developer
+lede: >-
+  I build exceptional digital experiences with modern technologies.
+  Passionate about clean code, great UI/UX, and turning ideas into reality.
+
+bio: >-
+  I am a passionate full-stack developer with over 15 years of experience
+  building web applications. I love creating elegant solutions to complex
+  problems and bringing ideas to life through code.
+
+stats:
+  - value: "15+"
+    label: Years Experience
+  - value: "100+"
+    label: Projects Completed
+  - value: "200+"
+    label: Happy Clients
+
+location: Munich, Germany
+
+# Email and social links are language-neutral — keep them identical in every
+# language folder (they are repeated so each language folder stays self-contained).
+email: tkilimann@icloud.com
+
+social:
+  - platform: github
+    url: https://github.com/tklmn
+  - platform: linkedin
+    url: https://www.linkedin.com/in/tklmn
+
+social_show_email: true

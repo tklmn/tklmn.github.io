@@ -1,0 +1,10 @@
+<footer>
+  <div class="wrap">
+    <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
+    {% assign L = site.default_lang | default: "en" %}
+    {% assign footer_profile = site.data.i18n[L].profile %}
+    {% include social.html class="footer-social" profile=footer_profile %}
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="Scroll to top"><iconify-icon icon="ph:arrow-up-bold"></iconify-icon></button>

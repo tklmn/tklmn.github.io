@@ -1,0 +1,49 @@
+# English UI strings. To add a language, copy the whole _data/i18n/en folder to
+# _data/i18n/<code> (e.g. fr) and translate the values — it appears automatically.
+
+# Native name shown in the language switcher (falls back to the code in CAPS).
+lang_name: English
+
+nav:
+  brand: "<tklmn />"
+  about: "About"
+  skills: "Skills"
+  projects: "Projects"
+  blog: "Blog"
+  contact: "Contact"
+
+hero:
+  cta_primary: "View My Work"
+  cta_secondary: "Contact Me"
+
+about:
+  eyebrow: "About Me"
+  heading: "Who am I?"
+  journey_heading: "My Journey"
+
+skills:
+  eyebrow: "Skills & Technologies"
+  heading: "Technologies I work with"
+  sub: "A snapshot of the tools and frameworks I use on a daily basis."
+
+projects:
+  eyebrow: "Work"
+  heading: "My Projects"
+  sub: "Live from my public GitHub repositories."
+  empty: "No public repositories found."
+  loading: "Loading projects…"
+
+blog:
+  eyebrow: "Writing"
+  heading: "Blog"
+  sub: "Thoughts on web development, tooling and everything in between."
+  empty: "Posts coming soon."
+  back: "Back to blog"
+
+contact:
+  eyebrow: "Get In Touch"
+  heading: "Let's work together"
+  sub: "Have a question or want to work together? Drop me a message."
+  cta: "Send me an email"
+  email_label: "Email"
+  location_label: "Location"

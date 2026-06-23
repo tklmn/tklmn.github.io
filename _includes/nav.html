@@ -1,0 +1,45 @@
+{% assign s = site.sections %}
+{% assign L = site.default_lang | default: "en" %}
+{% assign n = site.data.i18n[L].content.nav %}
+<header class="nav">
+  <div class="wrap">
+    <span class="nav-name"><a href="{{ '/' | relative_url }}" data-i18n="content.nav.brand">{{ n.brand | escape }}</a></span>
+    <div class="nav-right">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        {% if s.about %}<a href="{{ '/#about' | relative_url }}" data-i18n="content.nav.about">{{ n.about }}</a>{% endif %}
+        {% if s.skills %}<a href="{{ '/#skills' | relative_url }}" data-i18n="content.nav.skills">{{ n.skills }}</a>{% endif %}
+        {% if s.projects %}<a href="{{ '/#projects' | relative_url }}" data-i18n="content.nav.projects">{{ n.projects }}</a>{% endif %}
+        {% if s.blog %}<a href="{{ '/#blog' | relative_url }}" data-i18n="content.nav.blog">{{ n.blog }}</a>{% endif %}
+        {% if s.contact %}<a href="{{ '/#contact' | relative_url }}" data-i18n="content.nav.contact">{{ n.contact }}</a>{% endif %}
+      </nav>
+
+      {% comment %} Language switcher — options auto-generated from _data/i18n/* {% endcomment %}
+      {% assign lang_count = site.data.i18n | size %}
+      {% if lang_count > 1 %}
+      <div class="lang-switch">
+        <button class="icon-btn" id="langToggle" type="button" aria-label="Change language" aria-haspopup="true" aria-expanded="false" title="Language">
+          <iconify-icon icon="ph:translate-bold"></iconify-icon>
+          <span class="lang-current" data-lang-current>{{ L | upcase }}</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          {% for entry in site.data.i18n %}
+          <button type="button" role="menuitemradio" data-set-lang="{{ entry[0] }}"{% if entry[0] == L %} aria-checked="true"{% else %} aria-checked="false"{% endif %}>
+            <span class="lang-code">{{ entry[0] | upcase }}</span>
+            <span class="lang-name">{{ entry[1].content.lang_name | default: entry[0] | upcase }}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+        <iconify-icon class="moon" icon="ph:moon-bold"></iconify-icon>
+        <iconify-icon class="sun" icon="ph:sun-bold"></iconify-icon>
+      </button>
+      <button class="icon-btn nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <iconify-icon class="burger-open" icon="ph:list-bold"></iconify-icon>
+        <iconify-icon class="burger-close" icon="ph:x-bold"></iconify-icon>
+      </button>
+    </div>
+  </div>
+</header>

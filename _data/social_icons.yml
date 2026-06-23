@@ -1,0 +1,24 @@
+# Icon + label registry for social links referenced by _data/profile.yml.
+# Key = the `platform` value. Add new platforms here once and reuse everywhere.
+# A profile entry can always override these with its own `icon:` / `label:`.
+github:        { icon: "simple-icons:github",        label: GitHub }
+gitlab:        { icon: "simple-icons:gitlab",         label: GitLab }
+linkedin:      { icon: "simple-icons:linkedin",       label: LinkedIn }
+x:             { icon: "simple-icons:x",              label: X }
+twitter:       { icon: "simple-icons:x",              label: X }
+mastodon:      { icon: "simple-icons:mastodon",       label: Mastodon }
+bluesky:       { icon: "simple-icons:bluesky",        label: Bluesky }
+instagram:     { icon: "simple-icons:instagram",      label: Instagram }
+facebook:      { icon: "simple-icons:facebook",       label: Facebook }
+youtube:       { icon: "simple-icons:youtube",        label: YouTube }
+twitch:        { icon: "simple-icons:twitch",         label: Twitch }
+discord:       { icon: "simple-icons:discord",        label: Discord }
+telegram:      { icon: "simple-icons:telegram",       label: Telegram }
+codepen:       { icon: "simple-icons:codepen",        label: CodePen }
+dribbble:      { icon: "simple-icons:dribbble",       label: Dribbble }
+behance:       { icon: "simple-icons:behance",        label: Behance }
+stackoverflow: { icon: "simple-icons:stackoverflow",  label: Stack Overflow }
+devto:         { icon: "simple-icons:devdotto",       label: "DEV" }
+medium:        { icon: "simple-icons:medium",         label: Medium }
+website:       { icon: "ph:globe-bold",               label: Website }
+email:         { icon: "ph:envelope-simple-bold",     label: Email }

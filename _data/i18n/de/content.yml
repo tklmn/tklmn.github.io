@@ -1,0 +1,46 @@
+# Deutsche UI-Texte.
+lang_name: Deutsch
+
+nav:
+  brand: "<tklmn />"
+  about: "Über mich"
+  skills: "Skills"
+  projects: "Projekte"
+  blog: "Blog"
+  contact: "Kontakt"
+
+hero:
+  cta_primary: "Meine Arbeit"
+  cta_secondary: "Kontakt"
+
+about:
+  eyebrow: "Über mich"
+  heading: "Wer bin ich?"
+  journey_heading: "Mein Werdegang"
+
+skills:
+  eyebrow: "Skills & Technologien"
+  heading: "Technologien, mit denen ich arbeite"
+  sub: "Ein Überblick über die Tools und Frameworks, die ich täglich nutze."
+
+projects:
+  eyebrow: "Arbeit"
+  heading: "Meine Projekte"
+  sub: "Live aus meinen öffentlichen GitHub-Repositories."
+  empty: "Keine öffentlichen Repositories gefunden."
+  loading: "Projekte werden geladen…"
+
+blog:
+  eyebrow: "Schreiben"
+  heading: "Blog"
+  sub: "Gedanken über Webentwicklung, Tooling und alles dazwischen."
+  empty: "Beiträge folgen bald."
+  back: "Zurück zum Blog"
+
+contact:
+  eyebrow: "Kontakt aufnehmen"
+  heading: "Lass uns zusammenarbeiten"
+  sub: "Eine Frage oder Lust auf Zusammenarbeit? Schreib mir gern."
+  cta: "Schreib mir eine E-Mail"
+  email_label: "E-Mail"
+  location_label: "Standort"

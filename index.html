@@ -1,0 +1,166 @@
+---
+layout: default
+---
+{% comment %} Rendered in the default language; data-i18n keys let JS swap text. {% endcomment %}
+{% assign L = site.default_lang | default: "en" %}
+{% assign D = site.data.i18n[L] %}
+{% assign p = D.profile %}
+{% assign c = D.content %}
+{% assign s = site.sections %}
+{% assign has_journey = D.timeline | where_exp: "i", "i.role" | size %}
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap" data-reveal>
+      <div>
+        <p class="greet" data-i18n="profile.greeting">{{ p.greeting }}</p>
+        <h1 class="gradient-text">{{ p.name }}</h1>
+        <p class="role" data-i18n="profile.role" data-typewriter>{{ p.role }}</p>
+        <p class="lede" data-i18n="profile.lede">{{ p.lede }}</p>
+        <div class="btn-row">
+          {% if s.projects %}<a class="btn btn-primary" href="#projects" data-i18n="content.hero.cta_primary">{{ c.hero.cta_primary }}</a>{% endif %}
+          {% if s.contact %}<a class="btn btn-ghost" href="#contact" data-i18n="content.hero.cta_secondary">{{ c.hero.cta_secondary }}</a>{% endif %}
+        </div>
+        {% include social.html class="social-row" profile=p %}
+      </div>
+      <div class="hero-media">
+        <img src="{{ '/assets/img/hero.png' | relative_url }}" alt="{{ p.name }}" width="340" height="340" />
+      </div>
+    </div>
+  </section>
+
+  {% if s.about %}
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="wrap about-grid{% unless has_journey > 0 %} single{% endunless %}" data-reveal>
+      <div class="about-main">
+        <span class="eyebrow" data-i18n="content.about.eyebrow">{{ c.about.eyebrow }}</span>
+        <h2 data-i18n="content.about.heading">{{ c.about.heading }}</h2>
+        <p class="bio" data-i18n="profile.bio">{{ p.bio }}</p>
+        {% if p.stats.size > 0 %}
+        <div class="stats">
+          {% for stat in p.stats %}
+          <div class="stat"><div class="num gradient-text" data-i18n="profile.stats.{{ forloop.index0 }}.value">{{ stat.value }}</div><div class="cap" data-i18n="profile.stats.{{ forloop.index0 }}.label">{{ stat.label }}</div></div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      {% if has_journey > 0 %}
+      <div class="about-journey">
+        <h3 class="journey-title" data-i18n="content.about.journey_heading">{{ c.about.journey_heading }}</h3>
+        <div class="timeline">
+          {% for item in D.timeline %}
+          <div class="tl-item">
+            <div class="tl-date" data-i18n="timeline.{{ forloop.index0 }}.period">{{ item.period }}</div>
+            <div class="tl-role" data-i18n="timeline.{{ forloop.index0 }}.role">{{ item.role }}</div>
+            <div class="tl-org" data-i18n="timeline.{{ forloop.index0 }}.org">{{ item.org }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if s.skills and D.skills.size > 0 %}
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow" data-i18n="content.skills.eyebrow">{{ c.skills.eyebrow }}</span>
+      <h2 data-i18n="content.skills.heading">{{ c.skills.heading }}</h2>
+      {% if c.skills.sub %}<p class="sub" data-i18n="content.skills.sub">{{ c.skills.sub }}</p>{% endif %}
+      <div class="skill-cats">
+        {% for group in D.skills %}
+        <div class="skill-card">
+          <div class="label" data-i18n="skills.{{ forloop.index0 }}.category">{{ group.category }}</div>
+          {% for sk in group.items %}
+          <div class="skill-row">
+            <div class="skill-head">
+              {% if sk.icon %}<iconify-icon icon="{{ sk.icon }}"></iconify-icon>{% endif %}
+              <span class="skill-name">{{ sk.name }}</span>
+              {% if sk.level %}<span class="skill-pct">{{ sk.level }}%</span>{% endif %}
+            </div>
+            {% if sk.level %}<div class="skill-bar"><div class="skill-fill" style="--w: {{ sk.level }}%"></div></div>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if s.projects %}
+  <!-- ============ PROJECTS ============ -->
+  <section class="section" id="projects">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow" data-i18n="content.projects.eyebrow">{{ c.projects.eyebrow }}</span>
+      <h2 data-i18n="content.projects.heading">{{ c.projects.heading }}</h2>
+      {% if c.projects.sub %}<p class="sub" data-i18n="content.projects.sub">{{ c.projects.sub }}</p>{% endif %}
+      <div class="project-grid" id="projectGrid"
+           data-user="{{ site.github_username }}"
+           data-hide="{{ site.projects.hide | join: ',' }}"
+           data-max="{{ site.projects.max }}"
+           data-loading="{{ c.projects.loading }}"
+           data-empty="{{ c.projects.empty }}">
+        <p class="project-state" id="projectState" data-i18n="content.projects.loading">{{ c.projects.loading }}</p>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if s.blog %}
+  <!-- ============ BLOG ============ -->
+  <section class="section" id="blog">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow" data-i18n="content.blog.eyebrow">{{ c.blog.eyebrow }}</span>
+      <h2 data-i18n="content.blog.heading">{{ c.blog.heading }}</h2>
+      {% if c.blog.sub %}<p class="sub" data-i18n="content.blog.sub">{{ c.blog.sub }}</p>{% endif %}
+      {% if site.posts.size > 0 %}
+        <div class="post-list">
+          {% for post in site.posts limit: site.home_posts %}
+          <a class="post-card" href="{{ post.url | relative_url }}">
+            <span class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</span>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+          </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="empty" data-i18n="content.blog.empty">{{ c.blog.empty }}</p>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if s.contact %}
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow" data-i18n="content.contact.eyebrow">{{ c.contact.eyebrow }}</span>
+      <h2 data-i18n="content.contact.heading">{{ c.contact.heading }}</h2>
+      {% if c.contact.sub %}<p class="sub" data-i18n="content.contact.sub">{{ c.contact.sub }}</p>{% endif %}
+      <div class="contact-grid">
+        {% if p.email %}
+        <a class="contact-card" href="mailto:{{ p.email }}">
+          <iconify-icon icon="ph:envelope-simple-bold"></iconify-icon>
+          <div><div class="label" data-i18n="content.contact.email_label">{{ c.contact.email_label }}</div><div class="val">{{ p.email }}</div></div>
+        </a>
+        {% endif %}
+        {% if p.location %}
+        <div class="contact-card">
+          <iconify-icon icon="ph:map-pin-bold"></iconify-icon>
+          <div><div class="label" data-i18n="content.contact.location_label">{{ c.contact.location_label }}</div><div class="val" data-i18n="profile.location">{{ p.location }}</div></div>
+        </div>
+        {% endif %}
+      </div>
+      {% if p.email %}<a class="btn btn-primary" href="mailto:{{ p.email }}" data-i18n="content.contact.cta">{{ c.contact.cta }}</a>{% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+</main>
