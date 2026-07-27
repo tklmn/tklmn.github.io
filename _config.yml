@@ -13,6 +13,10 @@ baseurl: ""
 lang: en
 default_lang: en
 
+# Default color scheme ("light" or "dark") for visitors who haven't picked one
+# via the toggle yet. A stored visitor choice always wins.
+default_theme: dark
+
 # GitHub username used to import public repositories as projects
 github_username: tklmn
 

@@ -114,6 +114,7 @@ The newest posts show on the home page, and each gets its own page at `/blog/tit
 | 🔤 Section headings, eyebrows, buttons | `_data/i18n/en/content.yml` | `hero`, `about`, `skills`, … |
 | ➕ Add / remove a language | `_data/i18n/` | one folder per language |
 | 🌍 Default language | `_config.yml` | `default_lang` |
+| 🌗 Default theme (light/dark) | `_config.yml` | `default_theme` |
 | 🔀 Turn whole sections on/off | `_config.yml` | `sections` |
 | 🔌 GitHub user & project rules | `_config.yml` | `github_username`, `projects` |
 | 🏠 Posts shown on the home page | `_config.yml` | `home_posts` |
